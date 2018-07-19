@@ -1,0 +1,25 @@
+#!/bin/bash
+# This hook is sourced after every virtualenv is activated.
+
+# envs
+export PROJECT_NAME=`basename $VIRTUAL_ENV`
+export PROJECT_PATH=$PROJECT_HOME/$PROJECT_NAME
+export PROJECT_ENV_PATH=$PROJECT_HOME/$PROJECT_NAME/.env
+export DJANGO_MANAGE_PATH=$PROJECT_HOME/$PROJECT_NAME/manage.py
+
+echo "### Load $PROJECT_NAME virtualenv ###"
+
+# Load project .env
+if [ -e $PROJECT_ENV_PATH ]
+then
+  echo "### Load .env from $PROJECT_ENV_PATH ###"
+  set -a
+  . $PROJECT_ENV_PATH
+#  export $(egrep -v '^#' .env | xargs) # dont work
+#  export $(cat .env | xargs) # dont work
+fi
+
+# aliases
+echo "### Load aliases ###"
+source $WORKON_HOME/django.sh
+
