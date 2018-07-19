@@ -15,6 +15,7 @@ then
   echo "### Load .env from $PROJECT_ENV_PATH ###"
   set -a
   . $PROJECT_ENV_PATH
+  set +a
 #  export $(egrep -v '^#' .env | xargs) # dont work
 #  export $(cat .env | xargs) # dont work
 fi
