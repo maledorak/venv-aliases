@@ -16,11 +16,10 @@ then
   set -a
   . $PROJECT_ENV_PATH
   set +a
-#  export $(egrep -v '^#' .env | xargs) # dont work
-#  export $(cat .env | xargs) # dont work
 fi
 
 # aliases
 echo "### Load aliases ###"
-source $WORKON_HOME/django.sh
+source $WORKON_HOME/scripts/django.sh
+source $WORKON_HOME/scripts/docker.sh
 
