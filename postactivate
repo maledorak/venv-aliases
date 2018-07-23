@@ -35,4 +35,5 @@ echo "### Load aliases ###"
 source $WORKON_HOME/scripts/django.sh && echo "* django loaded"
 source $WORKON_HOME/scripts/pipenv.sh && echo "* pipenv loaded"
 source $WORKON_HOME/scripts/docker.sh && echo "* docker loaded"
+source $WORKON_HOME/scripts/postgresql.sh && echo "* postgres loaded"
 
