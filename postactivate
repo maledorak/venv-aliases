@@ -4,7 +4,7 @@
 # envs
 export PROJECT_NAME=`basename $VIRTUAL_ENV`
 export PROJECT_PATH=$PROJECT_HOME/$PROJECT_NAME
-export DOTENV_PROJECT_PATH=$PROJECT_HOME/$PROJECT_NAME/.env.proj
+export DOTENV_DEFAULT_PATH=$PROJECT_HOME/$PROJECT_NAME/.env.default
 export DOTENV_PATH=$PROJECT_HOME/$PROJECT_NAME/.env
 export DJANGO_MANAGE_PATH=$PROJECT_HOME/$PROJECT_NAME/manage.py
 export PACKAGE_JSON_DIR=$PROJECT_HOME/$PROJECT_NAME
@@ -12,16 +12,16 @@ export PIPFILE_DIR=$PROJECT_HOME/$PROJECT_NAME
 
 echo "### Load $PROJECT_NAME virtualenv ###"
 
-# Load .env.proj
-if [ -e $DOTENV_PROJECT_PATH ]
+# Load .env.default
+if [ -e $DOTENV_DEFAULT_PATH ]
 then
-  echo "### Load .env.proj from $DOTENV_PROJECT_PATH ###"
+  echo "### Load .env.default from $DOTENV_DEFAULT_PATH ###"
   set -a
-  . $DOTENV_PROJECT_PATH
+  . $DOTENV_DEFAULT_PATH
   set +a
 fi
 
-# Load .env, should ovveride .env.proj
+# Load .env, will override .env.default
 if [ -e $DOTENV_PATH ]
 then
   echo "### Load .env from $DOTENV_PATH ###"

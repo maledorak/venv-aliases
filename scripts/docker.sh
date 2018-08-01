@@ -3,6 +3,8 @@
 ##### Docker aliases #####
 alias do="docker"
 alias dc="docker-compose"
+alias dcrun="docker-compose run --rm"
+alias dcrunnotty="docker-compose run --rm -T"
 
 # containers
 alias docount="docker ps -qa | wc -l"
